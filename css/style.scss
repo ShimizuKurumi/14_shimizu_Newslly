@@ -1,0 +1,188 @@
+$color-accent: #FA6980;
+$color-title: #202124;
+$color-text: #888;
+$color-bg-gray: #F6F6F6;
+$color-sub: #bbb;
+
+@mixin inner($w: 90%, $mw: 800px) {
+    width: $w;
+    max-width: $mw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex($a: center, $j: space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin py($y: 60px) {
+    padding-top: $y;
+    padding-bottom: $y;
+}
+
+@mixin title-main() {
+    font-size: 24px;
+    line-height: (31/24);
+    color: $color-title;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    font-weight: bold;
+    border-left: 10px solid $color-accent;
+    text-transform: uppercase;
+}
+
+@mixin title-sub() {
+    margin-bottom: 15px;
+    color: $color-title;
+    font-size: 18px;
+    line-height: (23/18);
+    font-weight: bold;
+}
+
+body {
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: $color-text;
+    line-height: (24/14);
+    letter-spacing: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.header {
+    padding-top: 30px;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__logo {
+        img {
+            margin: 0 auto;
+        }
+    }
+}
+
+.news {
+    @include py();
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        @include title-main();
+    }
+
+    &__list {
+        @include flex();
+        margin-bottom: -60px;
+    }
+
+    &__item {
+        width: (380/800)*100%;
+        margin-bottom: 60px;
+    }
+}
+
+.trending {
+    @include py();
+    background-color: $color-bg-gray;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        @include title-main();
+    }
+
+    &__list {
+        @include flex();
+        margin-bottom: -60px;
+    }
+
+    &__item {
+        width: (380/800)*100%;
+        margin-bottom: 60px;
+    }
+
+}
+
+.post {
+    &__category {
+        color: $color-accent;
+        font-size: 12px;
+        font-style: oblique;
+        line-height: (20/12);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        @include title-sub();
+    }
+}
+
+.card {
+    background-color: #fff;
+
+    &__body {
+        padding: 35px;
+    }
+
+    &__title {
+        @include title-sub();
+    }
+}
+
+.time {
+    font-size: 12px;
+    line-height: (20/12);
+    background: url(../images/icon_time.png) no-repeat left center;
+    color: $color-sub;
+    padding-left: 26px;
+    margin-top: 20px;
+}
+
+.btn {
+    display: block;
+    width: 160px;
+    color: #fff;
+    font-size: 12px;
+    line-height: (20/12);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: $color-accent;
+    margin-left: auto;
+    padding: 15px 0;
+    margin-top: 25px;
+}
+
+.footer {
+    padding: 100px 0 40px;
+    background-color: $color-title;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__copy {
+        color: $color-sub;
+        font-size: 12px;
+        line-height: (20/12);
+    }
+}
